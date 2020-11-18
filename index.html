@@ -20,25 +20,27 @@
 
 </style>
 <script>
-  function allClear(){
+  function allClear(){ //計算過程を全消去する
     var calcProcessObj = document.getElementById("calcProcess");
      calcProcessObj.value = "";
   }
 
-  function input(inputWord){
+  function input(inputWord){ //数字と演算子を入力する
     var calcProcessObj = document.getElementById("calcProcess");
     calcProcessObj.value += inputWord ;
   }
 
-  function calculate(){
+  function calculate(){ //計算結果を表示する
     var calcResultObj = document.getElementById("calcResult");
     var calc_string = document.getElementById("calcProcess").value;
     calcResultObj.value = safeEval(calc_string);
   }
 
-  function safeEval(calc_string){
+  function safeEval(calc_string){ //計算過程欄の計算式を評価する
     return Function('"use strict";return (' + calc_string  + ')')();
   }
+
+  function
 
 </script>
 <body>
