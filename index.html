@@ -8,6 +8,7 @@
   .button
   {
     background-color:#99ffff;
+    width: 40px;
   }
 
   .button:hover{
@@ -16,12 +17,13 @@
 
   .button:active{
   background: #69821b;
-}
+  }
 
 </style>
 <script>
+
   function allClear(){ //計算過程を全消去
-    var calcProcessObj = document.getElementById("calcProcess");
+     var calcProcessObj = document.getElementById("calcProcess");
      calcProcessObj.value = "";
   }
 
@@ -30,7 +32,7 @@
     calcProcessObj.value += inputWord ;
   }
 
-  function calculate(){ //計算結果を表示する
+  function calculationView(){ //計算結果を表示する
     var calcResultObj = document.getElementById("calcResult");
     var calc_string = document.getElementById("calcProcess").value;
     calcResultObj.value = safeEval(calc_string);
@@ -40,7 +42,7 @@
     return Function('"use strict";return (' + calc_string  + ')')();
   }
 
-  function backSpace(){
+  function backSpace(){ //計算過程の末尾を消去する
     var calcProcessObj = document.getElementById("calcProcess");
       calcProcessObj.value = calcProcessObj.value.slice(0,-1);
   }
@@ -48,7 +50,7 @@
 </script>
 <body>
   <p><input type="text" id="calcResult" readonly></p>
-  <p><input type="text" id="calcProcess"></p>
+  <p><input type="text" id="calcProcess" readonly></p>
   <div class="allButton">
     <div>
       <input type="button" name="button" class="button" value="C" onclick="allClear();">
@@ -76,9 +78,9 @@
     </div>
     <div>
       <input type="button" name="button" class="button" value="0" onclick="input(0)">
-      <input type="button" name="button" class="button" value="00"onclick="input()">
+      <input type="button" name="button" class="button" value="00"onclick="input(0), input(0)" >
       <input type="button" name="button" class="button" value="." onclick="input('.')">
-      <input type="button" name="button" class="button" value="=" onclick="calculate();">
+      <input type="button" name="button" class="button" value="=" onclick="calculationView();">
     </div>
   </div>
 </body>
