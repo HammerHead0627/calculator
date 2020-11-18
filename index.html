@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>計算機</title>
 </head>
 <style>
   .button
@@ -40,7 +40,10 @@
     return Function('"use strict";return (' + calc_string  + ')')();
   }
 
-  function
+  function backSpace(){
+    var calcProcessObj = document.getElementById("calcProcess");
+      calcProcessObj.value = calcProcessObj.value.slice(0,-1);
+  }
 
 </script>
 <body>
